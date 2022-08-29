@@ -1,0 +1,66 @@
+<!-- TEMPLATE DRIVEN FORM -->
+<p>EDIT EMPLOYEE</p>
+<div id="formmodel">
+    <form #userform="ngForm" ngNativeValidate (ngSubmit)= "AddnewUser(userobj)">
+        <div class="form-group" [class.has-error]="name.invalid && name.touched" [class.has-success]="name.valid">
+            <label for="name">Full Name:</label>
+            <input required type="text" name="name" [(ngModel)]="username" 
+              #name="ngModel" id="name" class="form-control" style="width: 250px;"/>
+             <span class ="help-block" *ngIf="name.invalid">
+                 Name is Required
+             </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="id.invalid && id.touched" [class.has-success]="id.valid">
+            <label for="id">Enter ID:</label>
+            <input required type="text" name="id" [(ngModel)]="userid" 
+              #id="ngModel" id="id" class="form-control" style="width: 250px;"/>
+             <span class ="help-block" *ngIf="id.invalid">
+                 Id is Required
+             </span>
+        </div>
+
+        <div class="form-group">
+            <label for="users">Users</label>
+            <select id="users" name="users"  [(ngModel)]="username" class="form-control" style="width:250 px;">
+            <option *ngFor="let item of User" [value]="item.username">
+               {{item.username}}
+            </option>
+            </select>
+        </div>
+        <div class="form-group ">
+            <label for="isauser">Is a User or not?</label>
+            <label class="radio-inline">
+            <input type="radio" value="Yes" name="isauser" #isauser="ngModel"  [(ngModel)] ="isuser">Yes
+            </label>
+            <label class="radio-inline">
+                <input type="radio" value="No" name="isauser" #isauser="ngModel"  [(ngModel)] ="isuser">No
+                </label>
+        </div>
+        <div class="form-group">
+            <label for="dor1">Date Of Register:</label>
+            <input type="date" id="dor1" name="dor1" [(ngModel)]="dor" class="form-control">
+
+        </div>
+        <div class="form-group">
+            <strong>Select User:</strong>
+            <select id="user1" data-style="btn-default" name="user1" 
+            class="selectpicker form-control" style="width:250 px;" [(ngModel)]="User" multiple> 
+            <option *ngFor="let item of User" [value]="item">
+                {{item.username}}
+            </option>
+        </select>
+        </div>
+        <div class="form-control">
+            <button type="submit" style="color:rgb(13, 9, 247);" class="btn btn-success" [disabled]="userform.invalid">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div id="empModel">
+    EmployeeData:<pre>{{User|json}}</pre>
+</div>
+<div id="gap"></div>
+<div id="AngularModel">
+    Angular generated model:<pre>{{userform.value|json}}</pre>
+</div>

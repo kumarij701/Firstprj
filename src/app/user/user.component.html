@@ -1,0 +1,14 @@
+<p>user works!</p>
+<input type="submit" value="Display User Details" (click)= "displayUsers()"/>
+<!-- <h1>{{userobj.username}}</h1> -->
+<ul *ngFor="let u of users">
+    <li>{{u.username}}</li>
+    <li>{{u.userid}}</li>
+    <li>{{u.userpwd}}</li>
+    <li>{{u.contactno}}</li>
+    <li>{{u.dor|date}}</li>
+
+    <a [routerLink] ="['/edituser', u.userid]">Employee Details</a>
+   </ul>
+
+<!-- {{userobj|json}} -->

@@ -1,0 +1,16 @@
+<p>add-user works!</p>
+
+<h1>Adding new User</h1>
+<form #userform="ngForm" ngNativeValidate (ngSubmit)="AddnewUser(userobj)">
+Enter User ID: <input type="text" id=userid [(ngModel)] =userobj.userid #userid =ngModel/>
+<div>
+    <span>Touched: {{userid.touched}}</span>
+    <span>UnTouched: {{userid.untouched}}</span>
+</div>
+Enter User Name: <input type="text" [(ngModel)] =userobj.username/>
+Enter User pwd: <input type="text" [(ngModel)] =userobj.userpwd/>
+Enter User contact no: <input type="text" [(ngModel)] =userobj.contactno/> 
+Enter Date: <input type="text" [(ngModel)] =userobj.dor/>
+
+<input type="submit" value="Add new User" />  <!--(click)= "AddnewUser(userobj)"-->
+</form>

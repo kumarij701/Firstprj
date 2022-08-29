@@ -1,0 +1,20 @@
+<div *ngFor="let item of UserStorys">
+    <div>{{item.userStoryId}}</div>
+    <div>{{item.userStoryName}}</div>
+    <div>{{item.storyPoints}}</div>
+    <div>{{item.storyOwner}}</div>
+    <div>{{item.storyDescription}}</div>
+</div>
+
+<div><button class="btn btn-success" (click)="get_api()" type="button">GET</button></div>
+
+<h1>Updating new User</h1>
+<form #userform1="ngForm" ngNativeValidate (ngSubmit)="post_api(UserStory)">
+Enter UserStory ID: <input type="text" id=userid [(ngModel)] =UserStory.userStoryId #userStoryId =ngModel/>
+Enter UserStory Name: <input type="text" [(ngModel)] =UserStory.userStoryName/>
+Enter Story Owner: <input type="text" [(ngModel)] =UserStory.storyOwner/>
+Enter StoryPoint: <input type="text" [(ngModel)] =UserStory.storyPoints/> 
+Enter StoryDescription: <input type="text" [(ngModel)] =UserStory.storyDescription/>
+
+<input type="submit" value="Add new User" />  <!--(click)= "AddnewUser(userobj)"-->
+</form>
